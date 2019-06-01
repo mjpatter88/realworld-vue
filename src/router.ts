@@ -5,8 +5,8 @@ import Home from './views/Home.vue';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
   base: process.env.BASE_URL,
+  linkExactActiveClass: 'active',
   routes: [
     {
       path: '/',
@@ -14,12 +14,34 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      path: '/login',
+      name: 'login',
+      component: () => import(/* webpackChunkName: "about" */ './views/Login.vue'),
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import(/* webpackChunkName: "about" */ './views/Register.vue'),
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: () => import(/* webpackChunkName: "about" */ './views/Settings.vue'),
+    },
+    {
+      path: '/editor',
+      name: 'editor',
+      component: () => import(/* webpackChunkName: "about" */ './views/EditArticle.vue'),
+    },
+    {
+      path: '/article',
+      name: 'article',
+      component: () => import(/* webpackChunkName: "about" */ './views/Article.vue'),
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => import(/* webpackChunkName: "about" */ './views/Profile.vue'),
     },
   ],
 });
